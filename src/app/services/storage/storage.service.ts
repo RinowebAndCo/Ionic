@@ -33,7 +33,7 @@ export class StorageService {
     try{
       await Filesystem.writeFile({
         path: path,
-        data: JSON.stringify(_value),
+        data: _value,
         directory: FilesystemDirectory.Data
       });
     }catch (e){

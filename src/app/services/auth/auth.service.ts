@@ -29,7 +29,7 @@ export class AuthService {
 
 
     await this.storage.setStorage("auth",JSON.stringify(_value));
-    await this.storage.setFilesystem('auth.txt',_value)
+    await this.storage.setFilesystem('auth.txt',JSON.stringify(_value))
 
     this.isLoggedIn = _value;
 
@@ -41,13 +41,13 @@ export class AuthService {
 
      await this.storage.getStorage("auth").then(el=> storeValue =  JSON.parse(el.value) || false);
 
-      console.log("STORAGE authValue",storeValue);
+      // console.log("STORAGE authValue",storeValue);
 
       if (!this.platform.is('hybrid')) {
 
           await this.storage.getFilesystem('auth.txt').then(el=>  systemValue = JSON.parse(el.data) || false);
 
-          console.log("FILESYSTEM fileValue",systemValue);
+          // console.log("FILESYSTEM fileValue",systemValue);
 
       } 
       return storeValue || systemValue;
