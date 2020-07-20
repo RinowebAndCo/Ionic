@@ -1,0 +1,49 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Profil
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="backImage">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-card class="cardProfil">
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Profil</ion-card-title>
+    <ion-card-subtitle class="ion-text-center">À transmettre par mail</ion-card-subtitle>
+    
+  </ion-card-header>
+  <ion-card-content class="ion-justify-content-center">
+  <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nom</ion-label>
+        <ion-input inputmode="text"  name="nom" [(ngModel)]="profilService.profil.nom" ></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-label position="floating">Prénom</ion-label>
+        <ion-input inputmode="text"  name="prenom" [(ngModel)]="profilService.profil.prenom" ></ion-input>
+      </ion-item>
+      <ion-item  class="ion-margin-top">
+        <ion-label position="floating">Société</ion-label>
+        <ion-input inputmode="text" name="societe" [(ngModel)]="profilService.profil.societe"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <ion-button type="submit" expand="full"
+            ion-button
+            class="ion-activatable ripple-parent ion-margin-top ">
+      Enregistrer
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-button>
+  </form>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

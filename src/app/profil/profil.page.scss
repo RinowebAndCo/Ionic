@@ -1,0 +1,20 @@
+
+
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+ion-content{
+  --background: url(../../assets/test.jpg) no-repeat center center / cover;
+  --background-attachment: fixed;
+}
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.cardProfil{
+  max-width: 500px;
+  max-width: 90%;
+  margin: 1rem auto;
+}

@@ -1,0 +1,21 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+#iconSend{
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 8px - (0.25rem/2));
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  &.sent{
+    background: rgba(66, 138, 255, 0.7);
+  }
+}
+ion-fab-button {
+  & ion-icon{
+    font-size:30px;
+  }
+  width: 55px !important;
+  height: 55px !important;
+  }
