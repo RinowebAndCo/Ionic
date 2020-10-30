@@ -1,0 +1,7 @@
+keytool -genkey -v -keystore factuwebKey.keystore -alias factuwebKey -keyalg RSA -keysize 2048 -validity 10000
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore factuwebKey.keystore  factuweb-unsigned.apk factuwebKey
+zipalign -v 4 factuweb-unsigned.apk factuweb.apk 
+
+
+
+keytool -importkeystore -srckeystore C:\Users\theo.marino\Desktop\IONIC\Ionic\platforms\android\app\build\outputs\apk\debug\factuweb_key.jks -destkeystore C:\Users\theo.marino\Desktop\IONIC\Ionic\platforms\android\app\build\outputs\apk\debug\factuweb_key.jks -deststoretype pkcs12

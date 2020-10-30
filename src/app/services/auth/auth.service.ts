@@ -39,13 +39,13 @@ export class AuthService {
   public async getAuth(){
       let storeValue:boolean=false,systemValue:boolean=false;
 
-     await this.storage.getStorage("auth").then(el=> storeValue =  JSON.parse(el.value) || false);
+     await this.storage.getStorage("auth").then(el=> storeValue =  JSON.parse(el.value) || false).catch(el=>console.log(el));
 
       // console.log("STORAGE authValue",storeValue);
 
       if (!this.platform.is('hybrid')) {
 
-          await this.storage.getFilesystem('auth.txt').then(el=>  systemValue = JSON.parse(el.data) || false);
+          await this.storage.getFilesystem('auth.txt').then(el=>  systemValue = JSON.parse(el.data) || false).catch(el=>console.log(el));
 
           // console.log("FILESYSTEM fileValue",systemValue);
 

@@ -13,8 +13,6 @@ export class PhotoPage {
   constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController,public profilService:ProfilService) {}
 
   ngOnInit() {
-    this.photoService.loadSaved();
-    this.profilService.getProfil();
   }
 
   public async showActionSheet(photo, position) {
@@ -36,7 +34,7 @@ export class PhotoPage {
           this.photoService.deletePicture(photo, position);
         }
       }, {
-        text: 'Cancel',
+        text: 'Retour',
         icon: 'close',
         role: 'cancel',
         handler: () => {

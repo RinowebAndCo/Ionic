@@ -1,39 +1,30 @@
-
 <ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Photo Gallery</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <ion-grid>
     <ion-row>
-    <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-      <ion-img src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}" (click)="showActionSheet(photo, position)"></ion-img>
-      <ion-icon *ngIf="!photo.send" name="send-sharp" size="large" id="iconSend" (click)="photoService.envoyerMail(photo, position)"></ion-icon>
-      <ion-icon *ngIf="photo.send" name="checkmark-done-sharp" size="large" id="iconSend" class="sent" (click)="photoService.envoyerMail(photo, position)"></ion-icon>
-      
-    </ion-col>
+      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+        <ion-img src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}" id="{{photo.filepath}}"
+          (click)="showActionSheet(photo, position)"></ion-img>
+        <ion-icon *ngIf="!photo.send" name="send-sharp" size="large" id="iconSend"
+          (click)="photoService.envoyerMail(photo, position)"></ion-icon>
+        <ion-icon *ngIf="photo.send" name="checkmark-done-sharp" size="large" id="iconSend" class="sent"
+          (click)="photoService.envoyerMail(photo, position)"></ion-icon>
+
+      </ion-col>
     </ion-row>
   </ion-grid>
 
-  
- {{profilService.profil.nom}}
- {{profilService.profil.prenom}}
- {{profilService.profil.societe}}
-
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed" >
-    <ion-fab-button >
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="dark">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="start">
-      <ion-fab-button (click)="photoService.addNewToGallery(false)">
+      <ion-fab-button color="base" (click)="photoService.addNewToGallery()">
         <ion-icon name="camera"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
 
     <ion-fab-list side="end">
-      <ion-fab-button (click)="photoService.addNewToGallery(true)">
+      <ion-fab-button color="base" (click)="photoService.openGallery()">
         <ion-icon name="images"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>

@@ -32,6 +32,14 @@
    */
   
   body {
+    /** USED **/
+ --ion-color-base: rgb(140 163 175);
+ --ion-color-base-rgb: 140 163 175;
+ --ion-color-base-contrast: #ffffff;
+ --ion-color-base-contrast-rgb: 255, 255, 255;
+ --ion-color-base-shade: rgba(63, 63, 63, 0.8);
+ --ion-color-base-tint: rgba(119, 119, 119, 0.5);
+ 
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;

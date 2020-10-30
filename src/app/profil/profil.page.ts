@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProfilService} from '../services/profil/profil.service';
-import {Profil} from '../services/modele/class'
+import { ProfilService } from '../services/profil/profil.service';
+import { Profil } from '../services/modele/class'
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -10,16 +10,14 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['profil.page.scss']
 })
 export class ProfilPage {
-
-  constructor(public profilService : ProfilService,public alertController: AlertController) {
-    this.profilService.getProfil();
+  constructor(public profilService: ProfilService, public alertController: AlertController) {
   }
 
   onSubmitForm(form: NgForm) {
-    this.profilService.setProfil(new Profil(form.value["nom"],form.value["prenom"],form.value["societe"])).then(el=> this.showAlert());
+    this.profilService.setProfil(new Profil(form.value["nom"], form.value["prenom"], form.value["societe"])).then(() => this.showAlertSuccess()).catch(() => this.showAlertError());
   }
 
-  private async showAlert(){
+  private async showAlertSuccess() {
     const alert = await this.alertController.create({
       cssClass: 'alert-class',
       header: 'Succés',
@@ -29,5 +27,16 @@ export class ProfilPage {
 
     await alert.present();
   }
+  private async showAlertError() {
+    const alert = await this.alertController.create({
+      cssClass: 'alert-class',
+      header: 'Erreur',
+      message: 'Un problème est survenue lors de l\'enregistrement.',
+      buttons: ['Compris']
+    });
+
+    await alert.present();
+  }
+
 
 }
